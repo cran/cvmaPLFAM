@@ -1,0 +1,16 @@
+9784ee3898831a6fefd074e664781956 *DESCRIPTION
+ff3954dffea86fd5f55329597ef5b0cd *NAMESPACE
+656377747505f666463bec06a00b51cc *R/cvfolds.R
+76091d7b2f7dddd3f279ec685e769a4c *R/cvmaPLFAM.R
+1da62d85edc4ffab2b1e9db80a0c872c *R/data_gen.R
+cc7a0102607cfddc38db3dbb9d4db9ab *R/fpcscore.R
+741d26c87188cef7b147ee536d9f4ac0 *R/modelspec.R
+5a333ecafb897349ca3610fd53674c35 *R/plam.fit.R
+48ebfdeb1b0c2e0659c092d0d2c3f57a *R/predRisk.R
+df6ae42d921ff061684c9cfac2b2d173 *R/simu_funs.R
+4ec1d507f0790c18484272acf31e7802 *man/cvfolds.Rd
+ec3b3ceaae0f6a0d0a7a7b5d28a8d9bd *man/cvmaPLFAM.Rd
+d706f5e35d3e5e628eed677051e2c05b *man/data_gen.Rd
+d7b56c99f0960c0ef87aadfc487a47ff *man/fpcscore.Rd
+3e428b439168ec4955aaca59b8067697 *man/modelspec.Rd
+9e6d9b9dc62a9f76753040bb72355c32 *man/predRisk.Rd
