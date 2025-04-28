@@ -23,15 +23,6 @@
 #' # Using 20 basis functions for spline approximation
 #' fpcscore(fddata, nbasis = 20, tt = tpoints)
 #'
-#' # Generate simulated data
-#' simdata = data_gen(R = 0.7, K = 1, n = 20, M0 = 20, typ = 1, design = 1)
-#' # Extract functional data from 'simdata', columns (M0+1):(M0+100)
-#' simfd = simdata[[1]][,21:120]
-#' # Calculate fpc scores
-#' fpcres = fpcscore(simfd, nbasis = 50, tt = seq(0, 1, length.out = 100))
-#' fpcres$score
-#' fpcres$eigv
-#' cumsum(fpcres$varp)
 #'
 
 fpcscore <- function(Z, nbasis, tt)

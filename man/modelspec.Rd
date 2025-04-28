@@ -2,14 +2,19 @@
 % Please edit documentation in R/modelspec.R
 \name{modelspec}
 \alias{modelspec}
-\title{Generate non-nested candidate models}
+\title{Generate candidate models}
 \usage{
-modelspec(nump, numq)
+modelspec(nump, numq, method = NULL)
 }
 \arguments{
 \item{nump}{The number of scalar predictors used in candidate models.}
 
 \item{numq}{The number of functional principal components (FPCs) used in candidate models.}
+
+\item{method}{A character string or NULL.
+If \code{NULL}, candidate models are generated under a non-nested structure.
+If \code{"nested"}, candidate models are generated under a nested structure.
+Otherwise, an error will be raised.}
 }
 \value{
 A \code{list} of
@@ -18,10 +23,11 @@ A \code{list} of
     \item{a3}{The index for each component in each candidate model.}
 }
 \description{
-Specify non-nested candidate models, according to the prescribed number of scalar predictors and the number of functional principal components (FPCs).
-     Each candidate model comprises at least one scalar predictor and one FPC, leading to a total number of candidate models \emph{(2^\code{nump}-1)*(2^\code{numq}-1)}.
+Specify non-nested or nested candidate models, according to the prescribed number of scalar predictors and the number of functional principal components (FPCs).
+     Each candidate model comprises at least one scalar predictor and one FPC.
 }
 \examples{
+# Example 1: non-nested models
 # Given nump = 2 and numq = 2, resulting in 9 candidate models
 modelspec(2, 2)
 #$a1
@@ -39,5 +45,22 @@ modelspec(2, 2)
 # [7,]    0    2    3    4
 # [8,]    0    2    3    0
 # [9,]    0    2    0    4
+
+# Example 2: nested models
+# Given nump = 2 and numq = 3, resulting in 6 candidate models
+modelspec(2, 3, method = "nested")
+#$a1
+# [1] 2 2 2 1 1 1
+#$a2
+# [1] 3 2 1 3 2 1
+#$a3
+#      [,1] [,2] [,3] [,4] [,5]
+# [1,]    1    2    3    4    5
+# [2,]    1    2    3    4    0
+# [3,]    1    2    3    0    0
+# [4,]    1    0    3    4    5
+# [5,]    1    0    3    4    0
+# [6,]    1    0    3    0    0
+
 
 }

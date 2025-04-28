@@ -2,10 +2,11 @@
 
 export(cvfolds)
 export(cvmaPLFAM)
+export(cvpredRisk)
 export(data_gen)
 export(fpcscore)
 export(modelspec)
-export(predRisk)
+export(plam.fit)
 import(MASS)
 import(fda)
 import(mgcv)

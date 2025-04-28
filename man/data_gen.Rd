@@ -4,25 +4,27 @@
 \alias{data_gen}
 \title{Simulated data}
 \usage{
-data_gen(R, K, n, M0 = 50, typ, design)
+data_gen(R, K, n, ntest, M0, typ, design)
 }
 \arguments{
 \item{R}{A scalar of value ranging from \code{0.1} to \code{0.9}. The ratio of \code{var(mu)/var(Y)}.}
 
 \item{K}{A scalar. The number of replications.}
 
-\item{n}{A scalar. The sample size of simulated data.}
+\item{n}{A scalar. The sample size of training data.}
+
+\item{ntest}{A scalar. The sample size of test data.}
 
 \item{M0}{A scalar. True dimension of scalar predictors.}
 
-\item{typ}{A scalar of value \code{1} or \code{2}. Type of the additive function for the functional predictor.}
+\item{typ}{A scalar of value \code{1} - \code{2}. Type of the effect for the functional predictor.}
 
-\item{design}{A scalar of value \code{1}, \code{2}, or \code{3}. Designs 1, 2, 3 corresponding to simulation studies.}
+\item{design}{A scalar of value \code{1} - \code{3}. Correspond to simulation studies.}
 }
 \value{
-A \code{list} of \code{K} simulated data sets. Each data set is of \code{matrix} type,
+A \code{list} of \code{K} simulated training data sets and \code{K} simulated test data sets. Each data set is of \code{matrix} type,
      whose first \code{M0} columns corresponds to the design matrix of scalar predictors, followed by the
-     recording/measurement matrix of the functional predictor, and vectors \code{mu}, \code{Y}, \code{testY}.
+     recording/measurement matrix of the functional predictor, and vectors \code{mu}, \code{Y}.
 }
 \description{
 Simulate sample data for illustration, including a \code{M0}-column design matrix of scalar predictors,
@@ -32,13 +34,21 @@ Simulate sample data for illustration, including a \code{M0}-column design matri
 \examples{
 library(MASS)
 # Example: Design 1 in simulation study
-data_gen(R = 0.6, K = 2, n = 10, typ = 1, design = 1)
+set.seed(22)
+data1 <- data_gen(R = 0.6, K = 2, n = 10, ntest = 5, M0 = 4, typ = 1, design = 1)
+str(data1)
+# List of 4
+#$ : num [1:10, 1:106] -0.501 -1.266 -0.564 -0.563 -0.395 ...
+#$ : num [1:10, 1:106] -1.207 -0.089 -0.782 0.123 0.66 ...
+#$ : num [1:5, 1:106] 0.816 0.679 0.816 -0.563 -1.367 ...
+#$ : num [1:5, 1:106] -0.089 -0.785 0.899 -0.785 -0.445 ...
+
 
 # Example: Design 2 in simulation study
-data_gen(R = 0.3, K = 3, n = 10, typ = 2, design = 2)
+data_gen(R = 0.3, K = 3, n = 10, ntest = 5, M0 = 20, typ = 1, design = 2)
 
 # Example: Design 3 in simulation study
-data_gen(R = 0.9, K = 5, n = 20, typ = 1, design = 3)
+data_gen(R = 0.9, K = 5, n = 20, ntest = 10, M0 = 4, typ = 2, design = 3)
 
 
 }

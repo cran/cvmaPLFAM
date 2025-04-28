@@ -35,4 +35,3 @@ cvfolds <- function(nfolds, datasize)
   cvlist = lapply(x, function(x){ dataseq[temp == x] })
   return(cvlist)
 }
-
